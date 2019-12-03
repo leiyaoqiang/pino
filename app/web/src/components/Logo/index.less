@@ -1,0 +1,18 @@
+@import '~antd/lib/style/themes/default.less';
+
+.logo {
+  display: flex;
+  margin: 0;
+  width: 200px;
+  height: @layout-header-height;
+  img {
+    height: @layout-header-height/2;
+  }
+  .text {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 16px;
+    vertical-align: top; // 如果不设置，则元素会往下掉一个基线的高度
+    color: #fff;
+  }
+}
