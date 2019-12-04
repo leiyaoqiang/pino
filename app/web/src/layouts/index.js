@@ -1,12 +1,27 @@
-import styles from './index.css';
+import React from 'react';
+import { Layout } from 'antd';
+import { connect } from 'dva';
+import HeaderTop from '@/components/HeaderTop';
+import Breadcrumb from '@/components/Breadcrumb';
+const { Header, Content, Footer } = Layout;
 
-function BasicLayout(props) {
+const BasicLayout = props => {
   return (
-    <div className={styles.normal}>
-      <h1 className={styles.title}>Yay! Welcome to umi!</h1>
-      {props.children}
-    </div>
+    <>
+      <Layout className="layout">
+        <Header>
+          <HeaderTop userInfo={{ userName: 'Eacan' }} />
+        </Header>
+        <Content style={{ padding: '0 50px' }}>
+          <Breadcrumb location={props.location} style={{ margin: '16px 0' }} />
+          <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+            {props.children}
+          </div>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+      </Layout>
+    </>
   );
-}
+};
 
-export default BasicLayout;
+export default connect()(BasicLayout);
